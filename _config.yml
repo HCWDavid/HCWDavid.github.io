@@ -12,7 +12,7 @@ sass:
 plainwhite:
   name: David Wang
   tagline: Developer
-  date_format: "%b %-d, %Y"
+  date_format: "%b %Y"
   sitemap: true # set to true to generate sitemap.xml content
 
   # generate social links in footer
