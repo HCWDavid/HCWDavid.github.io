@@ -17,7 +17,7 @@ plainwhite:
 
   # generate social links in footer
   social_links:
-    twitter: N/A
+    twitter: 
     # instagram: daveeeewang
     github:  HCWDavid
     linkedIn: in/hanchen-david-wang
@@ -36,16 +36,16 @@ plainwhite:
     # microdotblog: jekyll
 
     # Mastodon instances
-    mastodon:
-    - username: daveeeewang
-      instance: instagram.com
+    # mastodon:
+    # - username: daveeeewang
+    #   instance: instagram.com
     # - username: jekyll2
     #   instance: example.com
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
-header_pages:
-- about.md
+# header_pages:
+# - about.md
 
 # Build settings
 theme: plainwhite

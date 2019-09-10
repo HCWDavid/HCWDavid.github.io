@@ -9,8 +9,23 @@
             <lastmod>2019-06-07T00:00:00+00:00</lastmod>
             <priority>1.00</priority>
         </url><url>
+                <loc>http://localhost:4000/category/2019/05/30/new-post.html</loc>
+                <lastmod>2019-05-30T00:00:00-07:00</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>0.80</priority>
+            </url><url>
+                <loc>http://localhost:4000/category/2019/05/30/2019-03-01-try-something-else.html</loc>
+                <lastmod>2019-05-30T00:00:00-07:00</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>0.80</priority>
+            </url><url>
                 <loc>http://localhost:4000/javascript/nodejs/2019/03/23/welcome-to-jekyll.html</loc>
                 <lastmod>2019-03-23T08:33:36-07:00</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>0.80</priority>
+            </url><url>
+                <loc>http://localhost:4000/java/mysql/html/css/maven/2019/03/20/Online-Movies-Store-Web-Application.html</loc>
+                <lastmod>2019-03-20T08:30:00-07:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url></urlset>
