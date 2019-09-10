@@ -15,7 +15,7 @@ In addition, I have been explosed to cloud services, such as Amazon AWS and Goog
 Here is a picture of my AMIs/used instances on AWS. P.S.: I have deleted my instances because of the monthly payment that I had to pay, so I created an image as a backup in case I want to have it back.
 ![1 AWS](/assets/Online-Movies-Store-Web-Application/1.png)
 
-This is our front-end pages look like:
+This is our front-end pages look like (we also implemented fuzzy search and autocomplete in the main search bar):
 ![2 Main Page](/assets/Online-Movies-Store-Web-Application/2.png)
 
 Of course, it is the most simple and static web page we first created: 
