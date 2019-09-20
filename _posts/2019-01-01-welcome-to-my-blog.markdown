@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Welcome"
-date:   2019-09-10 14:10:53 +0530
+date:   2019-01-01 14:10:53 +0530
 categories: Python
 ---
 Hello! This is my blog for my projects and progress of my works! First time use Github to host my website via Jekyll server. Thanks for coming! 

@@ -9,11 +9,6 @@
             <lastmod>2019-06-07T00:00:00+00:00</lastmod>
             <priority>1.00</priority>
         </url><url>
-                <loc>http://localhost:4000/python/2019/09/10/welcome-to-my-blog.html</loc>
-                <lastmod>2019-09-10T01:40:53-07:00</lastmod>
-                <changefreq>weekly</changefreq>
-                <priority>0.80</priority>
-            </url><url>
                 <loc>http://localhost:4000/angularcli/typescript/node.js/2019/08/09/2019-08-10-Single-Sign-On.html</loc>
                 <lastmod>2019-08-09T22:30:00-07:00</lastmod>
                 <changefreq>weekly</changefreq>
@@ -21,6 +16,11 @@
             </url><url>
                 <loc>http://localhost:4000/java/mysql/html/css/maven/2019/03/20/Online-Movies-Store-Web-Application.html</loc>
                 <lastmod>2019-03-20T08:30:00-07:00</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>0.80</priority>
+            </url><url>
+                <loc>http://localhost:4000/python/2019/01/01/welcome-to-my-blog.html</loc>
+                <lastmod>2019-01-01T00:40:53-08:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url></urlset>
