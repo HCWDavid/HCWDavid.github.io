@@ -8,7 +8,7 @@ categories: C/Cpp, GitHub
 This project is a Project Course referred to CS 122C from Prof. Chen Li at the University of California, Irvine.
 I will demonstrate my implementation of a database system ground up from the simplest basis (Page File Mangement)...
 WITHOUT SHARING ANY OF MY CODE. Because it is a on-going class and for the best of student fairness, I do not want
-student to have any unfair advatange using my code. Please understand this is a explanatory page for people wants to learn
+student to have any unfair advatange using my code. Please understand this is a explanatory page for people wanting to learn
 and understand how database system works and why it is efficient.
 
 Page File Management (PFM):
@@ -27,3 +27,18 @@ reason for not having a pointer is basically saving the resource.
 In the Filehandler, you have four additional functions: read a page, write a page, append a page, and get the total number of page.
 In context, a page is defined 4 KB which means 4096 (2^12) bytes each time you try to access a "page". It is used from a
 database perspective to create a level of readability and simplicity.
+
+This is what it looks like:
+
+PFM:
+
+- create:
+  - create the file and of course if file already exists, there would be no file created
+- destroy:
+  - destroy the file that is being created ONLY if it exists
+- open:
+  - file contains information about the counter, so it will write it to the FileHandle
+  - FileHandle will get the information (counters, file name) it needs for file manipulation.
+- close:
+  - close the FileHandle properly so that information about the counter will write back to the file
+  
