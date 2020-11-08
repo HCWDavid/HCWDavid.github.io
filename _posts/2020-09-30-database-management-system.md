@@ -41,4 +41,14 @@ PFM:
   - FileHandle will get the information (counters, file name) it needs for file manipulation.
 - close:
   - close the FileHandle properly so that information about the counter will write back to the file
-  
+
+FH:
+
+- read:
+  - read the actual "fileName" of a given page if the file name exists
+- write:
+  - write a certain page into the file (disk)
+- append:
+  - write to the end of the file (given the total page of the file)
+- totalPage:
+  - basically, return the total page of you appened.
