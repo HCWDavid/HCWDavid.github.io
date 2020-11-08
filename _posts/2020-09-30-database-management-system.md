@@ -4,12 +4,20 @@ title: Database Management System
 date: 2020-09-30 11:00 +0530
 categories: C/Cpp, GitHub
 ---
+#### Introduction
 
 This project is a Project Course referred to CS 122C from Prof. Chen Li at the University of California, Irvine.
-I will demonstrate my implementation of a database system ground up from the simplest basis (Page File Mangement)...
+I will explain my implementation of a database system ground up from the simplest basis (Page File Mangement)...
 WITHOUT SHARING ANY OF MY CODE. Because it is a on-going class and for the best of student fairness, I do not want
 student to have any unfair advatange using my code. Please understand this is a explanatory page for people wanting to learn
 and understand how database system works and why it is efficient.
+
+Last but not least, here is a overall image of how this project looks like:
+<img src="/assets/database-management-system/DBMS-structure.png" alt="structure" width="400">
+
+We will work from the bottom, disk space management, and in our case, we call it page file management.
+
+#### Part 1 (Project 1)
 
 Page File Management (PFM):
 PFM contains 4 functions that act with clear purpose: create, destroy, open, and close the file. Particularly, this is
@@ -52,3 +60,7 @@ FH:
   - write to the end of the file (given the total page of the file)
 - totalPage:
   - basically, return the total page of you appened.
+
+#### Part 2 (Project 2)
+
+Relation
