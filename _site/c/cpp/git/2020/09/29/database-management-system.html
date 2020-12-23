@@ -14,13 +14,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="This project is a Project Course referred to CS 122C from Prof. Chen Li at the University of California, Irvine. I will explain my implementation of a database system ground up from the simplest basis (Page File Mangement)… WITHOUT SHARING ANY OF MY CODE. Because it is a on-going class and for the best of student fairness, I do not want student to have any unfair advatange using my code. Please understand this is a explanatory page for people wanting to learn and understand how database system works and why it is efficient." />
 <meta property="og:description" content="This project is a Project Course referred to CS 122C from Prof. Chen Li at the University of California, Irvine. I will explain my implementation of a database system ground up from the simplest basis (Page File Mangement)… WITHOUT SHARING ANY OF MY CODE. Because it is a on-going class and for the best of student fairness, I do not want student to have any unfair advatange using my code. Please understand this is a explanatory page for people wanting to learn and understand how database system works and why it is efficient." />
-<link rel="canonical" href="http://localhost:4000/c/cpp,/github/2020/09/29/database-management-system.html" />
-<meta property="og:url" content="http://localhost:4000/c/cpp,/github/2020/09/29/database-management-system.html" />
+<link rel="canonical" href="http://localhost:4000/c/cpp/git/2020/09/29/database-management-system.html" />
+<meta property="og:url" content="http://localhost:4000/c/cpp/git/2020/09/29/database-management-system.html" />
 <meta property="og:site_name" content="Hanchen (David) Wang" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-09-29T22:30:00-07:00" />
 <script type="application/ld+json">
-{"dateModified":"2020-09-29T22:30:00-07:00","datePublished":"2020-09-29T22:30:00-07:00","url":"http://localhost:4000/c/cpp,/github/2020/09/29/database-management-system.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/c/cpp,/github/2020/09/29/database-management-system.html"},"author":{"@type":"Person","name":"HCWDavid"},"description":"This project is a Project Course referred to CS 122C from Prof. Chen Li at the University of California, Irvine. I will explain my implementation of a database system ground up from the simplest basis (Page File Mangement)… WITHOUT SHARING ANY OF MY CODE. Because it is a on-going class and for the best of student fairness, I do not want student to have any unfair advatange using my code. Please understand this is a explanatory page for people wanting to learn and understand how database system works and why it is efficient.","@type":"BlogPosting","headline":"Database Management System","@context":"http://schema.org"}</script>
+{"dateModified":"2020-09-29T22:30:00-07:00","datePublished":"2020-09-29T22:30:00-07:00","url":"http://localhost:4000/c/cpp/git/2020/09/29/database-management-system.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/c/cpp/git/2020/09/29/database-management-system.html"},"author":{"@type":"Person","name":"HCWDavid"},"description":"This project is a Project Course referred to CS 122C from Prof. Chen Li at the University of California, Irvine. I will explain my implementation of a database system ground up from the simplest basis (Page File Mangement)… WITHOUT SHARING ANY OF MY CODE. Because it is a on-going class and for the best of student fairness, I do not want student to have any unfair advatange using my code. Please understand this is a explanatory page for people wanting to learn and understand how database system works and why it is efficient.","@type":"BlogPosting","headline":"Database Management System","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 </head>
 <body>
@@ -38,11 +38,11 @@
 		</section>
 		<section class="content">
 			<div class="post-container">
-  <a class="post-link" href="/c/cpp,/github/2020/09/29/database-management-system.html">
+  <a class="post-link" href="/c/cpp/git/2020/09/29/database-management-system.html">
     <h2 class="post-title">Database Management System</h2>
   </a>
   <div class="post-meta">
-    <ul class="post-categories"><li>C/Cpp,</li><li>GitHub</li></ul>
+    <ul class="post-categories"><li>C/Cpp</li><li>Git</li></ul>
     <div class="post-date"><i class="icon-calendar"></i>Sep 2020</div>
   </div>
   <div class="post">
@@ -182,6 +182,171 @@ More specifically, we use columns-like tables to record tables’ information.</
     </ul>
   </li>
 </ul>
+
+<h4 id="part-3-project-3">Part 3 (Project 3)</h4>
+<p>Now, it is important to have the database ready; however, it is not enough to do any query search or comparison query at current stage. Now, we have implemented a B+ tree to further integrate our project:</p>
+
+<h5 id="our-implementation-design-of-index-entry">Our implementation design of index Entry:</h5>
+<ul>
+  <li>Entries on internal nodes:
+    <ul>
+      <li>each key has its left-page number and right-page number</li>
+      <li>and the entry has the length of the string if it is varchar otherwise it is just 4 bytes of float or int</li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>[LPageNum</td>
+              <td>&lt;(lengthOfVarChar and varchar or just float/int), (RID)&gt;</td>
+              <td>RPageNum]</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>Entries on leaf nodes:
+    <ul>
+      <li>each key has its left-page number and right-page number, in the leaf node, Left and Right page number are 
+remained -1 as always it is used only because of the generalization of the structure</li>
+      <li>and the entry has the length of the string if it is varchar otherwise it is just 4 bytes of float or int</li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>[-1</td>
+              <td>&lt;(lengthOfVarChar and varchar or just float/int), (RID)&gt;</td>
+              <td>-1]</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="our-page-design-choice">Our page design choice:</h5>
+<ul>
+  <li>Internal-page (non-leaf node) design.
+    <ul>
+      <li>a flag to show this node’s type (int nodeType).</li>
+      <li>a number of bytes that are free (short freeBytes).</li>
+      <li>a number of keys/slots that are being used (short slotNums)</li>
+      <li>an offset for nextLeaf and will not be used for Internal Node, allocated for leaf Node</li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>[L</td>
+              <td>key(RID)</td>
+              <td>R] [L</td>
+              <td>key(RID)</td>
+              <td>R]…..[nodeType][freeBytes][slotNum][nextLeaf (UNUSED)]</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>Leaf-page (leaf node) design.
+    <ul>
+      <li>a flag to show this node’s type (int nodeType).</li>
+      <li>a number of bytes that are free (short freeBytes).</li>
+      <li>a number of keys/slots that are being used (short slotNums)</li>
+      <li>an offset for nextLeaf, basically a page number used to find the next page number</li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>[L</td>
+              <td>key(RID)</td>
+              <td>R] [L</td>
+              <td>key(RID)</td>
+              <td>R]…..[nodeType][freeBytes][slotNum][nextLeaf (USED)]</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="a-quick-look-over-split-on-b-tree-again-i-will-not-provide-any-code-because-it-is-a-on-going-class-but-i-am-happy-to-share-my-logic-and-to-discuss-if-there-is-any-optimization-or-better-choice-toward-this-design">a quick look over split on B+ tree (again, I will not provide any code because it is a on-going class but I am happy to share my logic and to discuss if there is any optimization or better choice toward this design):</h5>
+<ul>
+  <li>will describe as a pseudo-code:
+    <ul>
+      <li>InsertLeaf():
+        <ul>
+          <li>while loop if it is not leaf:
+            <ul>
+              <li>for loop of all keys of the current page:
+                <ul>
+                  <li>if the new key is less than i’s key: go to left page num</li>
+                  <li>if it is the end of the current page: go to right page num (last page in the rightmost)</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>if enough space in the current leaf Node:
+            <ul>
+              <li>insert in the right offset</li>
+            </ul>
+          </li>
+          <li>otherwise:
+            <ul>
+              <li>split two node, original node becomes the new leaf node.</li>
+              <li>the first key of split right-side Node gets to copy up to internal node</li>
+              <li>if left leafNode was the root (meaning only has one node as the number of the total node:
+                <ul>
+                  <li>create a new node as the internal node and put the copy-up’ed key as the new internal key</li>
+                </ul>
+              </li>
+              <li>otherwise:
+  call insertIntermediate</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>insertIntermediate():
+        <ul>
+          <li>if has space in the internal node:
+            <ul>
+              <li>insert into the right position</li>
+            </ul>
+          </li>
+          <li>otherwise:
+            <ul>
+              <li>split and new left internal node gets the old internal node, and create a new right internal node</li>
+              <li>in the right-sided internal node, its first key gets to PUSH up instead of COPY (meaning will get to delete the key)</li>
+              <li>if the left node is the original root,
+                <ul>
+                  <li>create a new root and insert push-up’ed key in the first spot</li>
+                </ul>
+              </li>
+              <li>otherwise:
+  recursively call insertIntermediate()</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="part-4-final-project">Part 4 (Final Project):</h4>
+<p>The last part of the database management is the parser and optimizer for the database. It is used to help when the query pass in and choose whichever users ask for (such as Project, Filter, and Join)
+We have implement these functionalities:</p>
+<ul>
+  <li>Project</li>
+  <li>Filter</li>
+  <li>Blocked-Nest-Loop Join</li>
+  <li>Index-Nest-Loop Join</li>
+  <li>Aggregation (min, max, count, sum, avg)</li>
+  <li>Aggregation on Group-By</li>
+</ul>
+
+<p>A thank-you note to professor Chen Li and the TAs in this class helped us to develop such fascinating experiences and here is a link to the project website: <a href="https://grape.ics.uci.edu/wiki/public/wiki/cs222-2019-fall">CompSci122c</a>
+and additional work for Prof. Chen Li’s Research Texera: <a href="https://youtu.be/sYHSi8nEB7o">Texera</a>, and its GitHub page: <a href="https://github.com/Texera/texera">Texera</a></p>
 
 
   </div>
