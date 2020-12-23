@@ -63,4 +63,31 @@ FH:
 
 #### Part 2 (Project 2)
 
-Relation
+Relation Manager:
+After the RBFM and PFM, we have continued to implement a wrapping layer of RBFM to handle relationship tables for databases.
+More specifically, we use columns-like tables to record tables' information.
+- format shown below:
+  - Tables (table-id:int, table-name:varchar(50), file-name:varchar(50))
+  - Columns(table-id:int, column-name:varchar(50), column-type:int, column-length:int, column-position:int)
+- Example shown below: 
+  - Tables:
+    - (1, "Tables", "Tables")
+    - (2, "Columns", "Columns")
+  - Columns: 
+    - (1, "table-id", TypeInt, 4 , 1)
+    - (1, "table-name", TypeVarChar, 50, 2)
+    - (1, "file-name", TypeVarChar, 50, 3)
+    - (2, "table-id", TypeInt, 4, 1)
+    - (2, "column-name",  TypeVarChar, 50, 2)
+    - (2, "column-type", TypeInt, 4, 3)
+    - (2, "column-length", TypeInt, 4, 4)
+    - (2, "column-position", TypeInt, 4, 5)
+- Say now i want to insert a new table called "Employee":
+  - In Tables, I will add a record:
+    - (3, "Employee", "Employee")
+  - In Columns, I will add records:
+    - (3, "empname", TypeVarChar, 30, 1)
+    - (3, "age", TypeInt, 4, 2)
+    - (3, "height", TypeReal, 4, 3)
+    - (3, "salary", TypeInt, 4, 4)
+

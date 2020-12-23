@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Database Management System</title>
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Database Management System | Hanchen (David) Wang</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Database Management System" />
+<meta name="author" content="HCWDavid" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This project is a Project Course referred to CS 122C from Prof. Chen Li at the University of California, Irvine. I will explain my implementation of a database system ground up from the simplest basis (Page File Mangement)… WITHOUT SHARING ANY OF MY CODE. Because it is a on-going class and for the best of student fairness, I do not want student to have any unfair advatange using my code. Please understand this is a explanatory page for people wanting to learn and understand how database system works and why it is efficient." />
+<meta property="og:description" content="This project is a Project Course referred to CS 122C from Prof. Chen Li at the University of California, Irvine. I will explain my implementation of a database system ground up from the simplest basis (Page File Mangement)… WITHOUT SHARING ANY OF MY CODE. Because it is a on-going class and for the best of student fairness, I do not want student to have any unfair advatange using my code. Please understand this is a explanatory page for people wanting to learn and understand how database system works and why it is efficient." />
+<link rel="canonical" href="http://localhost:4000/c/cpp,/github/2020/09/29/database-management-system.html" />
+<meta property="og:url" content="http://localhost:4000/c/cpp,/github/2020/09/29/database-management-system.html" />
+<meta property="og:site_name" content="Hanchen (David) Wang" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-29T22:30:00-07:00" />
+<script type="application/ld+json">
+{"dateModified":"2020-09-29T22:30:00-07:00","datePublished":"2020-09-29T22:30:00-07:00","url":"http://localhost:4000/c/cpp,/github/2020/09/29/database-management-system.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/c/cpp,/github/2020/09/29/database-management-system.html"},"author":{"@type":"Person","name":"HCWDavid"},"description":"This project is a Project Course referred to CS 122C from Prof. Chen Li at the University of California, Irvine. I will explain my implementation of a database system ground up from the simplest basis (Page File Mangement)… WITHOUT SHARING ANY OF MY CODE. Because it is a on-going class and for the best of student fairness, I do not want student to have any unfair advatange using my code. Please understand this is a explanatory page for people wanting to learn and understand how database system works and why it is efficient.","@type":"BlogPosting","headline":"Database Management System","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+	<main class="container">
+		<section class="about">
+			<img src="/assets/portfolio.png" alt="David Wang">
+			<h2>David Wang</h2>
+			<p class="tagline">Developer</p>
+			<ul class="social">
+				<a href="https://github.com/HCWDavid"><li><i class="icon-github-circled"></i></li></a>
+				<a href="https://www.linkedin.com/in/hanchen-david-wang"><li><i class="icon-linkedin-squared"></i></li></a>
+				<a href="https://twitter.com/"><li><i class="icon-twitter-squared"></i></li></a>
+			</ul>
+			<p>&copy; 2019</p>
+		</section>
+		<section class="content">
+			<div class="post-container">
+  <a class="post-link" href="/c/cpp,/github/2020/09/29/database-management-system.html">
+    <h2 class="post-title">Database Management System</h2>
+  </a>
+  <div class="post-meta">
+    <ul class="post-categories"><li>C/Cpp,</li><li>GitHub</li></ul>
+    <div class="post-date"><i class="icon-calendar"></i>Sep 2020</div>
+  </div>
+  <div class="post">
+    <p>This project is a Project Course referred to CS 122C from Prof. Chen Li at the University of California, Irvine.
+I will explain my implementation of a database system ground up from the simplest basis (Page File Mangement)…
+WITHOUT SHARING ANY OF MY CODE. Because it is a on-going class and for the best of student fairness, I do not want
+student to have any unfair advatange using my code. Please understand this is a explanatory page for people wanting to learn
+and understand how database system works and why it is efficient.</p>
+
+<p>Last but not least, here is a overall image of how this project looks like:</p>
+
+<p><img src="/assets/database-management-system/DBMS-structure.png" alt="structure" width="400" /></p>
+
+<p>We will work from the bottom, disk space management, and in our case, we call it page file management.</p>
+
+<h4 id="part-1-project-1">Part 1 (Project 1)</h4>
+
+<p>Page File Management (PFM):
+PFM contains 4 functions that act with clear purpose: create, destroy, open, and close the file. Particularly, this is
+a single instance in the later object class that will only does these functionalities to create separation of layers for
+clean design and optimization.</p>
+
+<p>PFM is a file management that used very similar to the OS file management except for a few twists.
+First of all it does not contain a pointer per se (with bunch of other information contain inside of the pointers).
+PFM simply has a pass-by-reference variable of a Object called FileHandler (class of FileHandle) when to open the file
+to manipulate the data into the disk. It contains some information about the opened file, such as number of read, write,
+append, and of course, the file name. It does not really have a pointer point to the file because we did not want to leave
+any dangling pointer (of course based on the implementation it should not be a problem if we are sophisticated). But the another
+reason for not having a pointer is basically saving the resource.</p>
+
+<p>In the Filehandler, you have four additional functions: read a page, write a page, append a page, and get the total number of page.
+In context, a page is defined 4 KB which means 4096 (2^12) bytes each time you try to access a “page”. It is used from a
+database perspective to create a level of readability and simplicity.</p>
+
+<p>This is what it looks like:</p>
+
+<p>PFM:</p>
+
+<ul>
+  <li>create:
+    <ul>
+      <li>create the file and of course if file already exists, there would be no file created</li>
+    </ul>
+  </li>
+  <li>destroy:
+    <ul>
+      <li>destroy the file that is being created ONLY if it exists</li>
+    </ul>
+  </li>
+  <li>open:
+    <ul>
+      <li>file contains information about the counter, so it will write it to the FileHandle</li>
+      <li>FileHandle will get the information (counters, file name) it needs for file manipulation.</li>
+    </ul>
+  </li>
+  <li>close:
+    <ul>
+      <li>close the FileHandle properly so that information about the counter will write back to the file</li>
+    </ul>
+  </li>
+</ul>
+
+<p>FH:</p>
+
+<ul>
+  <li>read:
+    <ul>
+      <li>read the actual “fileName” of a given page if the file name exists</li>
+    </ul>
+  </li>
+  <li>write:
+    <ul>
+      <li>write a certain page into the file (disk)</li>
+    </ul>
+  </li>
+  <li>append:
+    <ul>
+      <li>write to the end of the file (given the total page of the file)</li>
+    </ul>
+  </li>
+  <li>totalPage:
+    <ul>
+      <li>basically, return the total page of you appened.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="part-2-project-2">Part 2 (Project 2)</h4>
+
+<p>Relation Manager:
+After the RBFM and PFM, we have continued to implement a wrapping layer of RBFM to handle relationship tables for databases.
+More specifically, we use columns-like tables to record tables’ information.</p>
+<ul>
+  <li>format shown below:
+    <ul>
+      <li>Tables (table-id:int, table-name:varchar(50), file-name:varchar(50))</li>
+      <li>Columns(table-id:int, column-name:varchar(50), column-type:int, column-length:int, column-position:int)</li>
+    </ul>
+  </li>
+  <li>Example shown below:
+    <ul>
+      <li>Tables:
+        <ul>
+          <li>(1, “Tables”, “Tables”)</li>
+          <li>(2, “Columns”, “Columns”)</li>
+        </ul>
+      </li>
+      <li>Columns:
+        <ul>
+          <li>(1, “table-id”, TypeInt, 4 , 1)</li>
+          <li>(1, “table-name”, TypeVarChar, 50, 2)</li>
+          <li>(1, “file-name”, TypeVarChar, 50, 3)</li>
+          <li>(2, “table-id”, TypeInt, 4, 1)</li>
+          <li>(2, “column-name”,  TypeVarChar, 50, 2)</li>
+          <li>(2, “column-type”, TypeInt, 4, 3)</li>
+          <li>(2, “column-length”, TypeInt, 4, 4)</li>
+          <li>(2, “column-position”, TypeInt, 4, 5)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Say now i want to insert a new table called “Employee”:
+    <ul>
+      <li>In Tables, I will add a record:
+        <ul>
+          <li>(3, “Employee”, “Employee”)</li>
+        </ul>
+      </li>
+      <li>In Columns, I will add records:
+        <ul>
+          <li>(3, “empname”, TypeVarChar, 30, 1)</li>
+          <li>(3, “age”, TypeInt, 4, 2)</li>
+          <li>(3, “height”, TypeReal, 4, 3)</li>
+          <li>(3, “salary”, TypeInt, 4, 4)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+  </div>
+		</section>
+	</main></body>
+</html>
