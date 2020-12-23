@@ -161,7 +161,7 @@ We have implement these functionalities:
 
 
 A thank-you note to professor Chen Li and the TAs in this class helped us to develop such fascinating experiences and here is a link to the project website: [CompSci122c][cs122c]
-and additional work for Prof. Chen Li's Research Texera: [Texera][texera-work], and its GitHub page: [Texera][texera]
+and additional work for Prof. Chen Li's Research Texera: [Texera-presentation][texera-work], and its GitHub page: [Texera][texera]
 
 [texera]: https://github.com/Texera/texera
 [texera-work]: https://youtu.be/sYHSi8nEB7o 
