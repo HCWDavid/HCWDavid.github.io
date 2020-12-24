@@ -10,20 +10,20 @@ show_excerpts: true # set to true to show excerpts on the homepage
 sass:
   sass_dir: _sass
 plainwhite:
-  name: David Wang
-  tagline: Developer
+  name: Hanchen David Wang
+  tagline: Student, Developer
   date_format: "%b %Y"
   sitemap: true # set to true to generate sitemap.xml content
 
   # generate social links in footer
   social_links:
-    twitter: 
+    # twitter: 
     # instagram: daveeeewang
     github:  HCWDavid
     linkedIn: in/hanchen-david-wang
     rss: rss
     # dribbble: jekyll
-    # facebook: jekyll
+    facebook: jekyll
     # flickr:   jekyll
 
     # linkedin: jekyll
