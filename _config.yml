@@ -19,13 +19,13 @@ plainwhite:
 
   # generate social links in footer
   social_links:
-    # twitter: 
+    twitter: 
     # instagram: daveeeewang
     github:  HCWDavid
     linkedIn: in/hanchen-david-wang
     rss: rss
     # dribbble: jekyll
-    facebook: jekyll
+    # facebook: jekyll
     # flickr:   jekyll
 
     # linkedin: jekyll
