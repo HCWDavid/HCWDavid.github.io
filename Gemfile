@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
 source "https://rubygems.org"
-gem "plainwhite"
-gem "github-pages", groups: :jekyll_plugins
+gemspec
+# gem "plainwhite"
+# gem "github-pages", groups: :jekyll_plugins

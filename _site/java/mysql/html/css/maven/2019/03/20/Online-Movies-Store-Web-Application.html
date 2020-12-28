@@ -21,7 +21,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-03-20T08:30:00-07:00" />
 <script type="application/ld+json">
-{"dateModified":"2019-03-20T08:30:00-07:00","datePublished":"2019-03-20T08:30:00-07:00","url":"http://localhost:4000/java/mysql/html/css/maven/2019/03/20/Online-Movies-Store-Web-Application.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/java/mysql/html/css/maven/2019/03/20/Online-Movies-Store-Web-Application.html"},"author":{"@type":"Person","name":"HCWDavid"},"description":"This project is the 122B project class, called “Project in Databases and Web Applications”.","@type":"BlogPosting","headline":"Online Movies Store Web Application","@context":"http://schema.org"}</script>
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/java/mysql/html/css/maven/2019/03/20/Online-Movies-Store-Web-Application.html"},"url":"http://localhost:4000/java/mysql/html/css/maven/2019/03/20/Online-Movies-Store-Web-Application.html","author":{"@type":"Person","name":"HCWDavid"},"description":"This project is the 122B project class, called “Project in Databases and Web Applications”.","headline":"Online Movies Store Web Application","dateModified":"2019-03-20T08:30:00-07:00","datePublished":"2019-03-20T08:30:00-07:00","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -102,39 +102,39 @@
 
 <p>Databases connectivity (initialized in java backend to connect with the database):</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Resource</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"jdbc/readDB"</span><span class="o">)</span>
-<span class="kd">private</span> <span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
+<span class="kd">private</span> <span class="nc">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
 </code></pre></div></div>
 <p>POST:</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doPost</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span><span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doPost</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span><span class="o">{</span>
     <span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
     <span class="o">...</span>
 <span class="o">}</span>
 </code></pre></div></div>
 <p>GET:</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
 	<span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
 </code></pre></div></div>
 
 <p>PreparedStatement in java to prevent SQL injection (what you need to do is to set the variable with the correct type into the question mark starting index of 1):</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span> <span class="n">q</span> <span class="o">=</span> <span class="s">"SELECT ___FROM___WHERE___?___?___"</span> <span class="o">;</span>
-<span class="n">Connection</span>  <span class="n">dbcon</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">.</span><span class="na">getConnection</span><span class="o">();</span>
-<span class="n">PreparedStatement</span> <span class="n">statement</span> <span class="o">=</span> <span class="n">dbcon</span><span class="o">.</span><span class="na">prepareStatement</span><span class="o">(</span><span class="n">q</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">q</span> <span class="o">=</span> <span class="s">"SELECT ___FROM___WHERE___?___?___"</span> <span class="o">;</span>
+<span class="nc">Connection</span>  <span class="n">dbcon</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">.</span><span class="na">getConnection</span><span class="o">();</span>
+<span class="nc">PreparedStatement</span> <span class="n">statement</span> <span class="o">=</span> <span class="n">dbcon</span><span class="o">.</span><span class="na">prepareStatement</span><span class="o">(</span><span class="n">q</span><span class="o">);</span>
 <span class="n">statement</span><span class="o">.</span><span class="na">setString</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">somestring1</span><span class="o">);</span>
 <span class="n">statement</span><span class="o">.</span><span class="na">setString</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">somestring2</span><span class="o">);</span>
-<span class="n">ResultSet</span> <span class="n">set</span> <span class="o">=</span> <span class="n">statement</span><span class="o">.</span><span class="na">executeQuery</span><span class="o">();</span>
+<span class="nc">ResultSet</span> <span class="n">set</span> <span class="o">=</span> <span class="n">statement</span><span class="o">.</span><span class="na">executeQuery</span><span class="o">();</span>
 </code></pre></div></div>
 
 <p>#FunPart (We also implemented ReCaptcha for checking robots as a security check):</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">URL</span> <span class="n">verifyUrl</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">SITE_VERIFY_URL</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">URL</span> <span class="n">verifyUrl</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="no">SITE_VERIFY_URL</span><span class="o">);</span>
 <span class="c1">// Open Connection to URL</span>
-<span class="n">HttpsURLConnection</span> <span class="n">conn</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpsURLConnection</span><span class="o">)</span> <span class="n">verifyUrl</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+<span class="nc">HttpsURLConnection</span> <span class="n">conn</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpsURLConnection</span><span class="o">)</span> <span class="n">verifyUrl</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="c1">// Add Request Header</span>
 <span class="n">conn</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
 <span class="n">conn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"User-Agent"</span><span class="o">,</span> <span class="s">"Mozilla/5.0"</span><span class="o">);</span>
 <span class="n">conn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Accept-Language"</span><span class="o">,</span> <span class="s">"en-US,en;q=0.5"</span><span class="o">);</span>
 <span class="c1">// Data will be sent to the server.</span>
-<span class="n">String</span> <span class="n">postParams</span> <span class="o">=</span> <span class="s">"secret="</span> <span class="o">+</span> <span class="n">RecaptchaConstants</span><span class="o">.</span><span class="na">SECRET_KEY</span> <span class="o">+</span> <span class="s">"&amp;response="</span> <span class="o">+</span> <span class="n">gRecaptchaResponse</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">postParams</span> <span class="o">=</span> <span class="s">"secret="</span> <span class="o">+</span> <span class="nc">RecaptchaConstants</span><span class="o">.</span><span class="na">SECRET_KEY</span> <span class="o">+</span> <span class="s">"&amp;response="</span> <span class="o">+</span> <span class="n">gRecaptchaResponse</span><span class="o">;</span>
 <span class="c1">// Send Request</span>
 <span class="n">conn</span><span class="o">.</span><span class="na">setDoOutput</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
 </code></pre></div></div>
@@ -144,24 +144,24 @@
 <p>We implemented Master-slave replication servers and connection pooling to improve the speed of the web application:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="n">web</span><span class="o">.</span><span class="na">xml</span> 
-<span class="err">#</span> <span class="n">Master</span><span class="o">/</span><span class="n">Slave</span> <span class="n">replication</span><span class="o">,</span> <span class="n">one</span> <span class="k">for</span> <span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="o">,</span> <span class="n">one</span> <span class="k">for</span> <span class="n">read</span><span class="o">/</span><span class="n">write</span>
+<span class="err">#</span> <span class="nc">Master</span><span class="o">/</span><span class="nc">Slave</span> <span class="n">replication</span><span class="o">,</span> <span class="n">one</span> <span class="k">for</span> <span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="o">,</span> <span class="n">one</span> <span class="k">for</span> <span class="n">read</span><span class="o">/</span><span class="n">write</span>
 <span class="o">&lt;</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">MySQL</span> <span class="n">DataSource</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="nc">MySQL</span> <span class="nc">DataSource</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">jdbc</span><span class="o">/</span><span class="n">readDB</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">javax</span><span class="o">.</span><span class="na">sql</span><span class="o">.</span><span class="na">DataSource</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">auth</span><span class="o">&gt;</span><span class="n">Container</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">auth</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">auth</span><span class="o">&gt;</span><span class="nc">Container</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">auth</span><span class="o">&gt;</span>
   <span class="o">&lt;/</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
 
 <span class="o">...</span>
 
 <span class="err">#</span> <span class="n">context</span><span class="o">.</span><span class="na">xml</span>
 <span class="err">#</span> <span class="n">connection</span> <span class="n">pooling</span>
-<span class="o">&lt;</span><span class="n">Resource</span> <span class="n">name</span><span class="o">=</span><span class="s">"jdbc/readDB"</span> <span class="n">auth</span><span class="o">=</span><span class="s">"Container"</span> <span class="n">type</span><span class="o">=</span><span class="s">"javax.sql.DataSource"</span>
+<span class="o">&lt;</span><span class="nc">Resource</span> <span class="n">name</span><span class="o">=</span><span class="s">"jdbc/readDB"</span> <span class="n">auth</span><span class="o">=</span><span class="s">"Container"</span> <span class="n">type</span><span class="o">=</span><span class="s">"javax.sql.DataSource"</span>
               <span class="n">maxTotal</span><span class="o">=</span><span class="s">"100"</span> <span class="n">maxIdle</span><span class="o">=</span><span class="s">"30"</span> <span class="n">maxWaitMillis</span><span class="o">=</span><span class="s">"10000"</span> <span class="n">username</span><span class="o">=</span><span class="s">"SomeUser"</span>
               <span class="n">password</span><span class="o">=</span><span class="s">"SomePassword"</span> <span class="n">driverClassName</span><span class="o">=</span><span class="s">"someDriverClass"</span>
               <span class="n">url</span><span class="o">=</span><span class="s">"someurl?autoReconnect=true&amp;amp;useSSL=false&amp;amp;cachePrepStmts=true"</span><span class="o">/&gt;</span>
 
-<span class="o">&lt;</span><span class="n">Resource</span> <span class="n">name</span><span class="o">=</span><span class="s">"jdbc/writeDB"</span> <span class="n">auth</span><span class="o">=</span><span class="s">"Container"</span> <span class="n">type</span><span class="o">=</span><span class="s">"javax.sql.DataSource"</span>
+<span class="o">&lt;</span><span class="nc">Resource</span> <span class="n">name</span><span class="o">=</span><span class="s">"jdbc/writeDB"</span> <span class="n">auth</span><span class="o">=</span><span class="s">"Container"</span> <span class="n">type</span><span class="o">=</span><span class="s">"javax.sql.DataSource"</span>
             <span class="n">maxTotal</span><span class="o">=</span><span class="s">"100"</span> <span class="n">maxIdle</span><span class="o">=</span><span class="s">"30"</span> <span class="n">maxWaitMillis</span><span class="o">=</span><span class="s">"10000"</span> <span class="n">username</span><span class="o">=</span><span class="s">"SomeUser"</span>
             <span class="n">password</span><span class="o">=</span><span class="s">"SomePassword"</span> <span class="n">driverClassName</span><span class="o">=</span><span class="s">"someDriverClass"</span>
             <span class="n">url</span><span class="o">=</span><span class="s">"someurl?autoReconnect=true&amp;amp;useSSL=false&amp;amp;cachePrepStmts=true"</span><span class="o">/&gt;</span>
