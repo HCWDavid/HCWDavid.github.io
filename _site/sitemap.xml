@@ -6,7 +6,7 @@
                 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
         <url>
             <loc>http://localhost:4000</loc>
-            <lastmod>2019-06-07T00:00:00+00:00</lastmod>
+	    <lastmod>2020-12-27T19:46:55-08:00</lastmod>
             <priority>1.00</priority>
         </url><url>
                 <loc>http://localhost:4000/c/cpp/git/2020/09/29/database-management-system.html</loc>
@@ -21,11 +21,6 @@
             </url><url>
                 <loc>http://localhost:4000/java/mysql/html/css/maven/2019/03/20/Online-Movies-Store-Web-Application.html</loc>
                 <lastmod>2019-03-20T08:30:00-07:00</lastmod>
-                <changefreq>weekly</changefreq>
-                <priority>0.80</priority>
-            </url><url>
-                <loc>http://localhost:4000/python/2019/01/01/welcome-to-my-blog.html</loc>
-                <lastmod>2019-01-01T00:40:53-08:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url><url>

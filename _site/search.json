@@ -1,0 +1,51 @@
+[
+  
+    {
+      "title"    : "Database Management System",
+      "title-lower"    : "database management system",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "C/CppGit",
+      "tags"     : "",
+      "url"      : "/c/cpp/git/2020/09/29/database-management-system.html",
+      "date"     : "2020-09-29 22:30:00 -0700",
+      "content"     : "This project is a Project Course referred to CS 122C from Prof. Chen Li at the University of California, Irvine.I will explain my implementation of a database system ground up from the simplest bas..."
+    } ,
+  
+    {
+      "title"    : "Single Sign On",
+      "title-lower"    : "single sign on",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "AngularCLITypeScriptNode.js",
+      "tags"     : "",
+      "url"      : "/angularcli/typescript/node.js/2019/08/09/2019-08-10-Single-Sign-On.html",
+      "date"     : "2019-08-09 22:30:00 -0700",
+      "content"     : "Single Sign-On, aka SSO, is a session and user authentication service that permits a user to use one set of login credentials to access multiple applications. A great example is Google; Google has ..."
+    } ,
+  
+    {
+      "title"    : "Online Movies Store Web Application",
+      "title-lower"    : "online movies store web application",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "JavaMySQLHTMLCSSMaven",
+      "tags"     : "",
+      "url"      : "/java/mysql/html/css/maven/2019/03/20/Online-Movies-Store-Web-Application.html",
+      "date"     : "2019-03-20 08:30:00 -0700",
+      "content"     : "This project is the 122B project class, called “Project in Databases and Web Applications”.I also had a awesome partner who has helped me to develop this project along the way and was able to make ..."
+    } ,
+  
+    {
+      "title"    : "Hackathon Competition - StayTogether",
+      "title-lower"    : "hackathon competition - staytogether",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "SwiftStoryboard",
+      "tags"     : "",
+      "url"      : "/swift/storyboard/2018/10/27/stay-together.html",
+      "date"     : "2018-10-27 01:40:53 -0700",
+      "content"     : "This is my first healthcare related competition that work closely on helping patients to refrain their opioid addiction.“The Opioid Hackathon is a nearly 30-hour collaborative computer-programming ..."
+    } 
+  
+]
