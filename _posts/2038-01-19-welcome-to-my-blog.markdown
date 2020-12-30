@@ -4,7 +4,7 @@ title:  "Welcome"
 date:   2038-01-19 03:14:07 +0530
 categories: Python
 ---
-Hello! This is my blog for my projects and progress of my works! First time use Github to host my website via Jekyll server. Thanks for coming! 
+Hello! This is my blog for my projects and progress of my works! First time use Github to host my website via Jekyll. Thanks for coming! 
 
 
 ```python
